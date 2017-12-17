@@ -49,6 +49,19 @@ public @interface Command {
     String[] aliases();
 
     /**
+     * Gets the commands the executor should listen to. The first element is the main command.
+     *
+     * @return The roles the executor should listen to.
+     */
+    String[] roles();
+
+    /**
+     * Gets whether the command is a role command
+     * @return Whether the command should be checked for roles or not.
+     */
+    boolean listenToRole() default false;
+
+    /**
      * Gets the description of the command.
      *
      * @return The description of the command.

@@ -96,6 +96,15 @@ public class JavacordHandler extends CommandHandler {
                 // remove the first which is the mention
                 splitMessage = Arrays.copyOfRange(splitMessage, 1, splitMessage.length);
             } else {
+                //might be a command that requires a mention instead
+                for (String s : splitMessage) {
+                    command = commands.get(s.toLowerCase());
+                    if (command != null && command.getCommandAnnotation().requiresMention()) {
+                        break;
+                    }
+                }
+            }
+            if (command == null) {
                 return;
             }
         }

@@ -54,6 +54,11 @@ public abstract class CommandHandler {
                 // add command to map. It's faster to access it from the map than iterating to the whole list
                 commands.put(defaultPrefix + alias.toLowerCase().replace(" ", ""), command);
             }
+
+            for (String role : annotation.aliases()) {
+                // add command to map. It's faster to access it from the map than iterating to the whole list
+                commands.put(defaultPrefix + role.toLowerCase().replace(" ", ""), command);
+            }
             // we need a list, too, because a HashMap is not ordered.
             commandList.add(command);
         }
