@@ -53,7 +53,7 @@ public @interface Command {
      *
      * @return The roles the executor should listen to.
      */
-    String[] roles();
+    String[] roles() default {""};
 
     /**
      * Gets whether the command is a role command
